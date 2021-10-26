@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Delphine Nwawuzie">
+    <title>Game</title>
+
+<style>
+    th {padding: 10px; text-align: center;}
+</style>
+
+<script>
+
+function shuffle()
+{
+   const directionarray = [document.getElementById("opt1").innerText, document.getElementById("opt2").innerText, document.getElementById("opt3").innerText, document.getElementById("opt4").innerText];
+    shufflewords(directionarray);
+    document.getElementById("opt1").innerText = directionarray[0];
+    document.getElementById("opt2").innerText = directionarray[1];
+    document.getElementById("opt3").innerText = directionarray[2];
+    document.getElementById("opt4").innerText = directionarray[3];
+
+}
+
+function shufflewords(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+}
+
+function reset() {
+
+document.getElementById("com1").disabled = true;
+document.getElementById("com2").disabled = true;
+document.getElementById("com3").disabled = true;
+document.getElementById("reset").disabled = true;
+document.getElementById("update").disabled = false;
+
+document.getElementById("box1").disabled = false;
+document.getElementById("box2").disabled = false;
+document.getElementById("box3").disabled = false;
+document.getElementById("box4").disabled = false;
+}
+
+function update() {
+document.getElementById("opt1").innerText = document.getElementById("box1").value;
+document.getElementById("opt2").innerText = document.getElementById("box2").value;
+document.getElementById("opt3").innerText = document.getElementById("box3").value;
+document.getElementById("opt4").innerText = document.getElementById("box4").value;
+
+document.getElementById("com1").disabled = false;
+document.getElementById("com2").disabled = false;
+document.getElementById("com3").disabled = false;
+document.getElementById("reset").disabled = false;
+document.getElementById("update").disabled = true;
+
+document.getElementById("box1").disabled = true;
+document.getElementById("box2").disabled = true;
+document.getElementById("box3").disabled = true;
+document.getElementById("box4").disabled = true;
+
+}
+
+
+function swap(prop1, prop2) {
+var v1 = document.getElementById(prop1).textContent;
+var v2 = document.getElementById(prop2).textContent;
+
+document.getElementById(prop1).textContent = v2;
+document.getElementById(prop2).textContent = v1;
+}
+
+
+</script>
+<noscript>
+    <p>
+      This web page uses JavaScript. For proper results,
+      you must use a web browser with JavaScript enabled.
+    </p>
+  </noscript>
+</head>
+
+<body onload="shuffle()">
+    <h2><b>Compass Game</b></h2>
+
+<p>
+    The direction letters on the <q>compass</q> are scrambled. Press the arrows to properly position the direction letters.
+</p>
+<div>
+    <table>
+        <tr>
+            <th style="transform: rotate(-45deg);">
+                <button id="com1" style="height: 40px; width: 35px;" onclick="swap('opt1','opt2')">&#8596;</button>
+            </th>
+            <th>
+                <label id="opt1" style="color: red; font-size: 30px;">E</label>                        
+            </th>
+            <th>
+                <space></space>
+                <label></label>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <space></space>
+                <label id="opt2" style="color: red; font-size: 30px;">S</label>
+            </th>
+            <th>
+                <button id="com2" style="height: 30px; width: 40px;" onclick="swap('opt2','opt3')">&#8596;</button>
+            </th>
+            <th>
+                <space></space>
+                <label id="opt3" style="color: red; font-size: 30px;">N</label>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <space></space>
+                <output></output>
+            </th>
+            <th>
+                <space></space>
+                <label id="opt4" style="color: red; font-size: 30px;">W</label>
+            </th>
+            <th style="transform: rotate(-45deg);">
+                <button id="com3" style="height: 40px; width: 35px;" onclick="swap('opt3','opt4')">&#8596;</button>
+            </th>
+        </tr>
+    </table>
+</div>
+
+<!-- <button id="shuffle" onclick="shuffle()">Shuffle</button> -->
+
+<br>
+<p>
+    To restart the game, press <i>Restart</i>, enter N, S, E, and W in any order in the boxes below, and then press <i>Update</i>.
+</p>
+    <br>
+    <button id="reset" onclick="reset();"> Restart</button>
+    <br>
+<p>
+    Top: <space></space> <input id="box1" value="" size="5px"> Left: <space></space> <input id="box2" size="5px"> Right: <space></space> <input id="box3" size="5px"> Bottom: <space></space> <input id="box4" size="5px">
+</p>
+
+<br> <button id="update" onclick="update()"> Update</button>
+
+
+</body>
+</html>

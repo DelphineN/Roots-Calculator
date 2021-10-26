@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Delphine Nwawuzie">
+    <title>Game</title>
+    <script src="./storyGenerator.js"></script>
+
+    <style>
+        .table {
+            display: table;
+            border-spacing: 3px;
+            margin-bottom: 13px;
+            margin-top: 13px;
+        }
+        .row {
+            display: table-row;
+        }
+        .row > * {
+            display: table-cell;
+        }
+        .row > :first-child {
+            text-align: right; padding-right: 10px;
+        }
+        .tahoma {
+            display: inline;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        label {
+            text-align: right;
+            padding-right: 8px;
+        }
+        .story {
+            color: blue;
+            font-family: "Comic Sans Ms", cursive, sans-serif;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        .story * {
+            display: inline;
+        }
+        .missingText {
+            color: red;
+        }
+        .filled {
+            color: blue;
+        }
+
+    </style>
+</head>
+
+
+<body>
+    <section id="frontPage">   
+        <h1><strong>Story Generator</strong></h1>
+
+        <div class="instructions">        
+            Enter appropriate values in all of the text boxes. Then click the <div class="tahoma">Done</div> 
+            button to generate a story with your entered values plugged into it. 
+        </div>
+            
+        <form class="table" id="form">
+            <div class="row">
+                <label for="noun">Noun:</label>
+                <input type="text" id="noun">
+            </div>
+            <div class="row">
+                <label for="pastTenseVerb1">past tense verb:</label>
+                <input type="text" id="pastTenseVerb1">
+            </div>
+            <div class="row">
+                <label for="adjective1">adjective:</label>
+                <input type="text" id="adjective1">
+            </div>
+            <div class="row">
+                <label for="pastTenseVerb2">past tense verb:</label>
+                <input type="text" id="pastTenseVerb2">
+            </div>
+            <div class="row">
+                <label for="adjective2">adjective:</label>
+                <input type="text" id="adjective2">
+            </div>
+            <br>
+            <div class="buttons">
+                <!-- Creates a button to generate story -->
+                <input type = "button" form="form" value = "Done" onclick="generateStory(this.form);">
+
+                <!-- Creates a button to clear story -->
+        
+                <input type = "reset" form="form" value = "Reset">
+            </div>
+        </form>
+    </section>
+        <br>
+
+<section id="resultPage" hidden>
+    <div class="story">
+        <div id="paragraph">
+            It was a dark and stormy night. A shot rang out! A 
+                <div class="missingText" id="nounText"></div> slammed. The maid 
+                <div class="missingText" id="ptVerb1Text"></div>. Suddenly, a 
+                <div class="missingText" id="adjec1Text"></div> ship appeared on the horizon! While millions of people 
+                <div class="missingText" id="ptVerb2Text"></div>, the king lived in luxury. Meanwhile, on a 
+                <div class="missingText" id="adjec2Text"></div> farm in kansas, a boy was growing up.
+        </div>
+        <br><br> 
+        The End
+    </div>
+
+    <input type="button" id="returnBtn" value="Return" onclick="reTurn()">
+</section>
+
+
+
+</body>
+
+</html>

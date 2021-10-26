@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Delphine Nwawuzie">
+    <title>Game</title>
+    <script src="./script.js"></script>
+</head>
+
+<body>
+    <h1><strong>Quadratic Equation Roots Calculator</strong></h1>
+
+    <p>
+        This web page finds the roots of a polynomial equation of the following form: 
+        <br><i><strong>ax&#x00B2; + bx + c = 0</strong></i>
+        <br><br>
+        a, b, and c must be integers between -99 and +99, and a must be non-zero.
+    </p>
+
+    <!-- <p>
+        <form name="input_form" onsubmit="Calculate();">
+            <br>
+            a: <input type="number" id="avalue" min="-99" max="99" required>
+            b: <input type="number" id="bvalue" min="-99" max="99" required>
+            c: <input type="number" id="cvalue" min="-99" max="99" required>
+            <br><br>
+            <button onsubmit="submit">Calculate roots</button>
+        </form>
+    </p> -->
+
+        <form name="input_form" action="javascript:validate();">
+            <br>
+            a: <input type="number" name="avalue" id="avalue" min="-99" max="99" required>
+            b: <input type="number" name="bvalue" id="bvalue" min="-99" max="99" required>
+            c: <input type="number" name="cvalue" id="cvalue" min="-99" max="99" required>
+            <br><br>
+            <input type="submit" value="Calculate roots">
+        </form>
+
+    <p id="output_text"></p>
+    
+
+</body>
+
+</html>
